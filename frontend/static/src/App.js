@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import Register from './Components/Register'
+import Register from './Components/Register';
+import Login from './Components/Login';
 
 class App extends Component {
 
@@ -19,6 +20,7 @@ render(){
         <div className="col-12 frontSplash">
         Some Extremely Useful Information
         <Register />
+        <Login />
         </div>
       </div>
     <div className="row navbar navRow bottomNav">
