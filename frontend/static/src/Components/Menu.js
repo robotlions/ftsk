@@ -67,7 +67,8 @@ class Menu extends Component {
           <button onClick={()=> this.submitEdit(data)}>Submit Edit</button>
           </form> : (
             <section className="menuCard" key={data.id}>
-            <h4>{data.name} - ${data.price}</h4>
+              <img style={{maxWidth: "100%", borderRadius: "5px"}} src={data.image} alt="menu item"/>
+            <h4 style={{paddingTop: "1vh"}}>{data.name} - ${data.price}</h4>
             <p>{data.description}</p>
             <p>Vegan: {data.vegan}  | Vegetarian: {data.vegetarian}</p>
             {this.state.isLoggedIn ? <><button onClick={() => this.editArticle(data)}>Edit</button> <button>Delete</button></> : null}
