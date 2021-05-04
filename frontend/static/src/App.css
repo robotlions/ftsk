@@ -5,10 +5,19 @@
 .bottomNav{
   margin-bottom: 0;
 }
+
+.menuCard{
+  background-color: #75C8AE;
+  box-shadow: 2px 2px 2px lightgray;
+  margin-top: 2vh;
+  padding-top: 1vh;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
 .container{
   text-align: center;
   min-height: 100vh;
-  background-color: beige;
 }
 
 .frontSplash{
@@ -19,14 +28,20 @@
 .navRow{
   color: beige;
   background-color: #75C8AE;
+  width: 100%;
+  font-size: x-large;
 }
 
 .titleRow{
   background-image: linear-gradient(#F4A127, #FFECB4);
-  min-height: 15vh;
   text-align: center;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
 }
 
+form{
+  text-align: left;
+}
 h1{
   margin: 0 auto;
 }
