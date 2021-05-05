@@ -1,0 +1,20 @@
+.About{
+    padding-top: 5vh;
+    font-weight: bold;
+    font-size: x-large;
+    min-height: 100vh;
+    background-size: auto;
+    position: relative;
+}
+
+.About::before{
+    content: "";
+    position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+    background-image: url("./images/sign.jpg");
+    background-position: center;
+    opacity: .3;
+}

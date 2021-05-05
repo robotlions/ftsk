@@ -7,7 +7,7 @@ import Schedule from './Components/Schedule';
 import Menu from './Components/Menu';
 import Login from './Components/Login';
 import Splash from './Components/Splash';
-import banner from './images/ftsk.png';
+import bannerlg from './images/bannerlg.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
@@ -26,7 +26,7 @@ render(){
 <div className="App">
   <div className="container">
     <div className="row titleRow">
-      <img className="titleBanner" src={banner} alt="title banner"/></div>
+      <img className="titleBanner" src={bannerlg} alt="title banner"/></div>
       <div className="row sticky-top">
         <Nav />
       </div>
@@ -44,7 +44,7 @@ render(){
         </div>
       </div>
     <div className="row navbar bottomNav">
-    <span>Contact</span><NavLink to='/login/'>Login</NavLink>
+    <span>Contact</span><NavLink to='/login/'>{this.state.isLoggedIn === true ? "Log Out" : "Log In"}</NavLink>
     </div>
     </div>
   </div>

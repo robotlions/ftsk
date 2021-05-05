@@ -1,10 +1,14 @@
 .App {
-  text-align: center;
   font-family:Verdana, Geneva, Tahoma, sans-serif
 }
 
 .bottomNav{
+  background-image: linear-gradient(to right, #75C8AE, #ffecb4);
   margin-bottom: 0;
+}
+
+.bottomNav a{
+  color: #f60d0d;
 }
 .homeText{
   margin-top: 2vh;
@@ -25,12 +29,28 @@
 
 .frontSplash{
   min-height: 80vh;
-  background-color: #f4a127;
+  /* background-color: #f4a127; */
+  background-color: rgb(239, 250, 176);
   padding-bottom: 3vh;
 }
 
+
+.navRow a{
+  color: #f60d0d;
+}
+
+.navRow a:active{
+  color: white;
+  text-decoration: none;
+}
+
+.navRow a:hover{
+  color: white;
+  text-decoration: none;
+}
+
+
 .navRow{
-  color: beige;
   background-image: linear-gradient(to right, #75C8AE, #ffecb4);
   width: 100%;
   font-size: large;
@@ -53,6 +73,7 @@
   padding-bottom: 5vh;
 }
 
+
 form{
   text-align: left;
 }
@@ -61,6 +82,7 @@ h1{
 }
 
 @media (min-width: 800px){
+
 
 input{
   max-width: 30vw;

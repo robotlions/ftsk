@@ -4,7 +4,7 @@ from .models import Menuitem
 from .serializers import MenuitemSerializer
 
 # Create your views here.
-class MenuitemsListCreateAPIView(generics.ListAPIView):
+class MenuitemsListCreateAPIView(generics.ListCreateAPIView):
     queryset = Menuitem.objects.all()
     serializer_class = MenuitemSerializer
     # permission_classes = [permissions.IsAuthenticatedOrReadOnly]

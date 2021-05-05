@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import '../About.css';
 
 
 class About extends Component {
@@ -11,7 +12,7 @@ class About extends Component {
         render(){
 
   return(
-    <div>
+    <div className="About">
        <h4 style={{marginTop: "3vh"}}>About Us:</h4>
        <p>Some mostly truthful information about stuff.</p>
        <h4>Contact</h4>

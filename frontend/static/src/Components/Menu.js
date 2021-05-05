@@ -9,12 +9,21 @@ class Menu extends Component {
       data: [],
       editWindow: "",
       isEditing: false,
+      isAdding: false,
       editText: "",
+      name: "",
+      image: "",
+
     };
     this.editArticle = this.editArticle.bind(this);
     this.submitEdit = this.submitEdit.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleImage = this.handleImage.bind(this);
+    this.addItem = this.addItem.bind(this);
+    this.deleteItem = this.deleteItem.bind(this);
+    this.cancelEdit = this.cancelEdit.bind(this);
+    this.cancelAdd = this.cancelAdd.bind(this);
+    this.doAdd = this.doAdd.bind(this);
   }
 
   componentDidMount() {
@@ -61,7 +70,7 @@ class Menu extends Component {
     for (var prop in edit) {
       formData.append(prop, this.state[prop]);
     }
-    // formData.delete("image");
+    formData.delete("image");
     this.setState({ isEditing: false });
     const options = {
       method: "PUT",
@@ -73,14 +82,65 @@ class Menu extends Component {
     const handleError = (err) => console.warn(err);
     const response = await fetch(`/menuitems/edit/${edit.id}/`, options);
     await response.json().catch(handleError);
+    window.location.reload();
   }
 
+  async addItem(e){
+    e.preventDefault();
+  
+    let formData = new FormData();
+    formData.append('image', this.state.image);
+    formData.append('name', this.state.name);
+    formData.append('price', this.state.price);
+    formData.append('description', this.state.description);
+    formData.append('vegan', this.state.vegan);
+    formData.append('vegetarian', this.state.vegetarian);
+  
+  
+  const options = {
+    method: 'POST',
+    headers: {
+      'X-CSRFToken': Cookies.get('csrftoken'),
+    },
+    body: formData,
+  }
+  
+  await fetch('/menuitems/', options);
+  window.location.reload();
+  }
+
+  async deleteItem(edit){
+
+  const options = {
+    method: 'DELETE',
+    headers: {
+      'X-CSRFToken': Cookies.get('csrftoken'),
+    },
+  }
+
+    await fetch(`/menuitems/edit/${edit.id}`, options)
+    window.location.reload();
+  }
+
+cancelEdit(){
+  this.setState({isEditing: false})
+}
+
+cancelAdd(){
+  this.setState({isAdding: false})
+}
+
+doAdd(){
+  this.setState({isAdding: true})
+}
   render() {
+    const addButton = <button style={{marginTop: "2vh"}} onClick={this.doAdd}>Add New Item</button>
     const menuList = this.state.data.map((data) =>
       this.state.isEditing === true && this.state.editWindow === data.id ? (
         <form key={data.id}>
           Name:
           <input
+            className="form-control"
             value={this.state.name}
             name="name"
             onChange={this.handleInput}
@@ -88,6 +148,7 @@ class Menu extends Component {
           <br />
           Price:
           <input
+            className="form-control"
             value={this.state.price}
             name="price"
             onChange={this.handleInput}
@@ -105,6 +166,7 @@ class Menu extends Component {
           <br />
           Vegan y/n:
           <input
+            className="form-control"
             value={this.state.vegan}
             name="vegan"
             onChange={this.handleInput}
@@ -112,17 +174,19 @@ class Menu extends Component {
           <br />
           Vegetarian y/n:
           <input
+            className="form-control"
             value={this.state.vegetarian}
             name="vegetarian"
             onChange={this.handleInput}
           />
           <br />
           Image:
-          <input type="file" name="image" onChange={this.handleImage} />
+          <input type="file" className="form-control" name="image" onChange={this.handleImage} />
           {this.state.image && (
             <img style={{maxWidth: "100%"}} src={this.state.preview} alt="preview" />
           )}
-          <button onClick={() => this.submitEdit(data)}>Submit Edit</button>
+          <button onClick={() => this.submitEdit(data)}>Submit Edit</button>{" "}
+          <button onClick={this.cancelEdit}>Cancel Edit</button>
         </form>
       ) : (
         <section className="menuCard" key={data.id}>
@@ -147,7 +211,7 @@ class Menu extends Component {
           {this.state.isLoggedIn ? (
             <>
               <button onClick={() => this.editArticle(data)}>Edit</button>{" "}
-              <button>Delete</button>
+              <button onClick={() => this.deleteItem(data)}>Delete</button>
             </>
           ) : null}
           {this.state.isEditing === true &&
@@ -170,9 +234,10 @@ class Menu extends Component {
       )
     );
 
-    const addItem = <form>
+    const addItem = <form >
     Name:
-    <input
+    <input 
+      className="form-control"
       value={this.state.name}
       name="name"
       onChange={this.handleInput}
@@ -180,6 +245,7 @@ class Menu extends Component {
     <br />
     Price:
     <input
+      className="form-control"
       value={this.state.price}
       name="price"
       onChange={this.handleInput}
@@ -197,6 +263,7 @@ class Menu extends Component {
     <br />
     Vegan y/n:
     <input
+      className="form-control"
       value={this.state.vegan}
       name="vegan"
       onChange={this.handleInput}
@@ -204,20 +271,23 @@ class Menu extends Component {
     <br />
     Vegetarian y/n:
     <input
+      className="form-control"
       value={this.state.vegetarian}
       name="vegetarian"
       onChange={this.handleInput}
     />
     <br />
     Image:
-    <input type="file" name="image" onChange={this.handleImage} />
+    <input type="file" className="form-control" name="image" onChange={this.handleImage} />
     {this.state.image && (
       <img style={{maxWidth: "100%"}} src={this.state.preview} alt="preview" />
     )}
-    <button type="submit">Submit Edit</button>
+    <button onClick={this.addItem}>Add Item</button>{" "}
+    <button onClick={this.cancelAdd}>Cancel Add</button>
   </form>
     return <div>{menuList}
-    {this.state.isLoggedIn ? addItem : null}</div>;
+    {this.state.isLoggedIn && this.state.isAdding === false ? addButton : null}
+    {this.state.isLoggedIn && this.state.isAdding === true ? addItem : null}</div>;
   }
 }
 export default Menu;
