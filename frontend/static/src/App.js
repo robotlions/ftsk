@@ -6,6 +6,8 @@ import About from './Components/About';
 import Schedule from './Components/Schedule';
 import Menu from './Components/Menu';
 import Login from './Components/Login';
+import Splash from './Components/Splash';
+import banner from './images/ftsk.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
@@ -24,7 +26,7 @@ render(){
 <div className="App">
   <div className="container">
     <div className="row titleRow">
-      <h1>Words and Stuff</h1></div>
+      <img className="titleBanner" src={banner} alt="title banner"/></div>
       <div className="row sticky-top">
         <Nav />
       </div>
@@ -36,7 +38,7 @@ render(){
       <Route path="/schedule/" component={Schedule}/>
       <Route path="/menu/" component={Menu} />
       <Route path="/login/" component={Login}/>
-      <Route path="/" component={Menu} />
+      <Route path="/" component={Splash} />
     </Switch>
     </React.Fragment>
         </div>

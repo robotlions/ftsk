@@ -120,7 +120,7 @@ class Menu extends Component {
           Image:
           <input type="file" name="image" onChange={this.handleImage} />
           {this.state.image && (
-            <img width="500" src={this.state.preview} alt="preview" />
+            <img style={{maxWidth: "100%"}} src={this.state.preview} alt="preview" />
           )}
           <button onClick={() => this.submitEdit(data)}>Submit Edit</button>
         </form>

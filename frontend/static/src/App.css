@@ -6,7 +6,9 @@
 .bottomNav{
   margin-bottom: 0;
 }
-
+.homeText{
+  margin-top: 2vh;
+}
 .menuCard{
   background-color: #75C8AE;
   box-shadow: 2px 2px 2px lightgray;
@@ -24,6 +26,7 @@
 .frontSplash{
   min-height: 80vh;
   background-color: #f4a127;
+  padding-bottom: 3vh;
 }
 
 .navRow{
@@ -31,6 +34,16 @@
   background-image: linear-gradient(to right, #75C8AE, #ffecb4);
   width: 100%;
   font-size: x-large;
+}
+
+.splashPhoto{
+  max-width: 100%;
+  margin-top: 5vh;
+}
+
+.titleBanner{
+  min-width: 100%;
+  max-width: 100%;
 }
 
 .titleRow{

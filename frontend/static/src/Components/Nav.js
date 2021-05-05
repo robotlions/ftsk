@@ -13,9 +13,11 @@ class Nav extends Component {
 
   return(
     <div className="navbar navRow">
-        <NavLink to='/schedule/'>Schedule</NavLink>
+        <NavLink to='/'>Home</NavLink>
         <NavLink to="/menu/">Menu</NavLink>
+        <NavLink to='/schedule/'>Schedule</NavLink>
         <NavLink to='/about/'>About</NavLink>
+        
     </div>
   );
 }
