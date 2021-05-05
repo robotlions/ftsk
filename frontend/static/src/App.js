@@ -42,7 +42,7 @@ render(){
         </div>
       </div>
     <div className="row navbar bottomNav">
-    <span>Contact</span><span>Something</span><NavLink to='/login/'>Login</NavLink>
+    <span>Contact</span><NavLink to='/login/'>Login</NavLink>
     </div>
     </div>
   </div>
