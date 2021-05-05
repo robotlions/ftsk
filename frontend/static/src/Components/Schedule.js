@@ -12,7 +12,10 @@ class Schedule extends Component {
 
   return(
     <div>
-        Schedule
+        <h4 style={{marginTop: "3vh"}}>Where we are today:</h4>
+        <p>Location Information</p>
+        <h4>Map</h4>
+        <p>Theoretically, right here will be a Google map to the current location, which can be updated.</p>
     </div>
   );
 }

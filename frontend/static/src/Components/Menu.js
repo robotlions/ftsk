@@ -169,7 +169,55 @@ class Menu extends Component {
         </section>
       )
     );
-    return <div>{menuList}</div>;
+
+    const addItem = <form>
+    Name:
+    <input
+      value={this.state.name}
+      name="name"
+      onChange={this.handleInput}
+    />
+    <br />
+    Price:
+    <input
+      value={this.state.price}
+      name="price"
+      onChange={this.handleInput}
+    />
+    <br />
+    Description:
+    <textarea
+      className="form-control"
+      rows="5"
+      type="text"
+      value={this.state.description}
+      name="description"
+      onChange={this.handleInput}
+    />
+    <br />
+    Vegan y/n:
+    <input
+      value={this.state.vegan}
+      name="vegan"
+      onChange={this.handleInput}
+    />
+    <br />
+    Vegetarian y/n:
+    <input
+      value={this.state.vegetarian}
+      name="vegetarian"
+      onChange={this.handleInput}
+    />
+    <br />
+    Image:
+    <input type="file" name="image" onChange={this.handleImage} />
+    {this.state.image && (
+      <img style={{maxWidth: "100%"}} src={this.state.preview} alt="preview" />
+    )}
+    <button type="submit">Submit Edit</button>
+  </form>
+    return <div>{menuList}
+    {this.state.isLoggedIn ? addItem : null}</div>;
   }
 }
 export default Menu;
