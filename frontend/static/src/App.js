@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Route, Switch, NavLink} from 'react-router-dom';
+import {Dropdown} from 'react-bootstrap';
 import Cookies from "js-cookie";
 import Nav from './Components/Nav';
 import About from './Components/About';
@@ -8,8 +9,12 @@ import Menu from './Components/Menu';
 import Login from './Components/Login';
 import Splash from './Components/Splash';
 import bannerlg from './images/bannerlg.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+
+const burgerIcon = <FontAwesomeIcon icon={faBars} />
 
 class App extends Component {
   constructor(props) {
@@ -26,8 +31,23 @@ render(){
 <div className="App">
   <div className="container">
     <div className="row titleRow">
+      
       <img className="titleBanner" src={bannerlg} alt="title banner"/></div>
-      <div className="row sticky-top">
+      {/* <div className="burgerMenu">{burgerIcon}</div> */}
+      <Dropdown className="burgerMenu">
+ <Dropdown.Toggle style={{backgroundColor: "transparent", color: "black", fontSize: "xxx-large", border:"none"}}>
+   {burgerIcon}
+   </Dropdown.Toggle>
+  
+
+  <Dropdown.Menu>
+  <Dropdown.Item href="/menu/">Menu</Dropdown.Item>
+  <Dropdown.Item href="/schedule">Schedule</Dropdown.Item>
+    <Dropdown.Item href="/about/">About</Dropdown.Item>
+    <Dropdown.Item href="/">Home</Dropdown.Item>
+  </Dropdown.Menu>
+</Dropdown>
+      <div className="row navLinks sticky-top">
         <Nav />
       </div>
       <div className="row">

@@ -1,6 +1,19 @@
 import React, {Component} from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faInstagram} from '@fortawesome/free-brands-svg-icons';
+import {faLinkedin} from '@fortawesome/free-brands-svg-icons';
+import {faFacebook} from '@fortawesome/free-brands-svg-icons';
+import {faTwitter} from '@fortawesome/free-brands-svg-icons';
+import { faEnvelopeOpenText } from '@fortawesome/free-solid-svg-icons';
+import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import '../About.css';
 
+const insta = <FontAwesomeIcon icon={faInstagram} />
+const email = <FontAwesomeIcon icon={faEnvelopeOpenText} />
+const phone = <FontAwesomeIcon icon={faPhone} />
+const linkedin = <FontAwesomeIcon icon={faLinkedin}/>
+const facebook = <FontAwesomeIcon icon={faFacebook}/>
+const twitter = <FontAwesomeIcon icon={faTwitter}/>
 
 class About extends Component {
   constructor (props){
@@ -11,13 +24,13 @@ class About extends Component {
       }
         render(){
 
+          const socialMediaLinks = <p>{insta} {linkedin} {facebook} {twitter} {email} {phone}</p>
+
   return(
     <div className="About">
+      {socialMediaLinks}
        <h4 style={{marginTop: "3vh"}}>About Us:</h4>
        <p>Some mostly truthful information about stuff.</p>
-       <h4>Contact</h4>
-       <p>Email: <a href="mailto:email@sample.com">email@sample.com</a></p>
-       <p>Phone: 555-555-5555</p>
     </div>
   );
 }
