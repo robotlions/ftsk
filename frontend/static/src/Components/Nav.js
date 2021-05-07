@@ -23,6 +23,7 @@ class Nav extends Component {
     <NavLink to="/menu/">menu</NavLink>
     <NavLink to='/schedule/'>schedule</NavLink>
     <NavLink to='/about/'>about</NavLink>
+    <NavLink to='/catering/'>catering</NavLink>
     
 </div>
   );

@@ -29,7 +29,7 @@ class About extends Component {
   return(
     <div className="About">
       {socialMediaLinks}
-       <h4 style={{marginTop: "3vh"}}>About Us:</h4>
+       <h1 style={{marginTop: "5vh"}}>About Us:</h1>
        <p>Some mostly truthful information about stuff.</p>
     </div>
   );
