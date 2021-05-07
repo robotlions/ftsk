@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'frontend.apps.FrontendConfig',
     'menuitems.apps.MenuitemsConfig',
     'api.apps.ApiConfig',
+    'contact.apps.ContactConfig',
 ]
 
 MIDDLEWARE = [

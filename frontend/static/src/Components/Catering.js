@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Cookies from "js-cookie";
 
 class Catering extends Component {
   constructor(props) {
@@ -12,9 +13,30 @@ class Catering extends Component {
         description: "",
         requests: "",
     };
-
+    this.submitRequest = this.submitRequest.bind(this);
     this.handleInput = this.handleInput.bind(this);
   }
+
+  submitRequest(){
+        const request = {
+          name: this.state.name,
+          phone: this.state.phone,
+          email: this.state.email,
+          dayTime: this.state.dayTime,
+          numAttendees: this.state.numAttendees,
+          description: this.state.description,
+          requests: this.state.requests,
+        };
+        fetch(`/contact/`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-CSRFToken": Cookies.get("csrftoken"),
+          },
+          body: JSON.stringify(request),
+        });
+      }
+  
 
   handleInput(event) {
     this.setState({ [event.target.name]: event.target.value });
@@ -22,7 +44,7 @@ class Catering extends Component {
 
   render() {
     const cateringRequestForm = (
-      <form>
+      <form onSubmit={this.submitRequest}>
         <input
           placeholder="Contact Name"
           className="form-control"
