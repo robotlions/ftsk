@@ -10,3 +10,6 @@ class ContactForm(forms.Form):
     numAttendees = forms.IntegerField()
     description = forms.CharField(widget=forms.Textarea, max_length=2000)
     requests = forms.CharField(widget=forms.Textarea, max_length=2000)
+
+    def __str__(self):
+        return self.email

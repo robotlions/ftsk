@@ -17,7 +17,8 @@ class Catering extends Component {
     this.handleInput = this.handleInput.bind(this);
   }
 
-  submitRequest(){
+  submitRequest(e){
+    e.preventDefault()
         const request = {
           name: this.state.name,
           phone: this.state.phone,
