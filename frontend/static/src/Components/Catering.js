@@ -20,13 +20,13 @@ class Catering extends Component {
   submitRequest(e){
     e.preventDefault()
         const request = {
-          name: this.state.name,
-          phone: this.state.phone,
-          email: this.state.email,
-          dayTime: this.state.dayTime,
-          numAttendees: this.state.numAttendees,
-          description: this.state.description,
-          requests: this.state.requests,
+          name: `Name: ${this.state.name}`,
+          phone: `Phone: ${this.state.phone}`,
+          email: `Email: ${this.state.email}`,
+          dayTime: `Day and Time: ${this.state.dayTime}`,
+          numAttendees: `No. of Attendees: ${this.state.numAttendees}`,
+          description: `Description: ${this.state.description}`,
+          requests: `Special Requests: ${this.state.requests}`,
         };
         fetch(`/contact/`, {
           method: "POST",
